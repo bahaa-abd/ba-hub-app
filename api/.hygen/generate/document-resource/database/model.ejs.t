@@ -1,0 +1,34 @@
+---
+to: src/database/models/<%= nameDash %>.model.ts
+async: true
+---
+import { model, Schema, type Document as MongooseDocument } from 'mongoose'
+import { omit } from 'lodash'
+
+export interface I<%= Name %> extends MongooseDocument {
+  id: string
+  // <creating-property-interface />
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt: Date | null;
+}
+
+const <%= name %>Schema: Schema = new Schema<I<%= Name %>>({
+  // <creating-property-schema />
+  deletedAt: {
+    type: Date,
+    default: null,
+  },
+}, {
+  collection: '<%= Name %>',
+  timestamps: true,
+  toJSON: {
+    virtuals: true,
+    transform: (_, ret) => omit(
+      ret,
+      ['deletedAt', '__v', '_id']
+    ),
+  },
+})
+
+export default model<I<%= Name %>>('<%= Name %>', <%= name %>Schema)

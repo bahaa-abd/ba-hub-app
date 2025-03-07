@@ -1,0 +1,27 @@
+{
+  "add": "Adding a new session",
+  "edit": "Modification of the session \"{{name}}\"",
+  "remove": "Remove session",
+  "addDessert": "Add dessert",
+  "endSession": "End session",
+  "table": {
+    "username": "Username"
+  },
+  "form": {
+    "username": "Username",
+    "numberOfPersons": "Number of persons",
+    "formAddDessert": "Add desserts",
+    "create": "Add",
+    "count": "Number of desserts",
+    "dessert": "Dessert",
+    "end": "End"
+  },
+  "message": {
+    "success": {
+      "edit": "The session has been modified successfully",
+      "end": "The session has been ended successfully",
+      "add": "The session has been added successfully",
+      "remove": "The session has been removed successfully"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "add": "Adding a new subscription order",
+  "edit": "Modification of the subscription order \"{{name}}\"",
+  "remove": "Remove subscription order",
+
+  "table": {
+    "organization": "Organization",
+    "price": "Price",
+    "plan": "Plan",
+    "status": "Status"
+  },
+  "form": {},
+  "message": {
+    "success": {
+      "edit": "The subscription order has been modified successfully",
+      "add": "The subscription order has been added successfully",
+      "remove": "The subscription order has been removed successfully",
+      "approve": "The subscription order has been approved successfully",
+      "refuse": "The subscription order has been refused successfully"
+    }
+  }
+}

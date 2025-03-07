@@ -1,0 +1,18 @@
+{
+  "navLink": {
+    "organizations": "organizations",
+    "my-organizations": "organizations",
+    "subscriptions": "subscriptions",
+    "subscription-orders": "subscription orders",
+    "sessions": "sessions",
+    "desserts": "desserts",
+    "statistics": "statistics",
+    "plans": "plans",
+    "offers": "offers",
+    "profile": "profile",
+    "settings": "settings",
+    "edit": "change personal info",
+    "password-change": "change password",
+    "password-forgot": "forgot password"
+  }
+}

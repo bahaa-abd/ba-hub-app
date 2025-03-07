@@ -1,0 +1,21 @@
+{
+  "add": "Adding a new subscription",
+  "edit": "Modification of the subscription \"{{name}}\"",
+  "remove": "Remove subscription",
+
+  "table": {
+    "organization": "Organization",
+    "price": "Price",
+    "plan": "Plan",
+    "status": "Status",
+    "expiresAt": "Expires in"
+  },
+  "form": {},
+  "message": {
+    "success": {
+      "edit": "The subscription has been modified successfully",
+      "add": "The subscription has been added successfully",
+      "remove": "The subscription has been removed successfully"
+    }
+  }
+}

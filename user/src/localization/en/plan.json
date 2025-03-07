@@ -1,0 +1,27 @@
+{
+  "add": "Adding a new plan",
+  "edit": "Modification of the plan \"{{name}}\"",
+  "remove": "Remove plan",
+
+  "table": {
+    "duration": "Duration",
+    "price": "Price",
+    "title": "Title",
+    "description": "Description"
+  },
+  "form": {
+    "duration": "Duration",
+    "price": "Price",
+    "title_ar": "Title in arabic",
+    "title_en": "Title in english",
+    "description_ar": "Description in arabic",
+    "description_en": "Description in english"
+  },
+  "message": {
+    "success": {
+      "edit": "The plan has been modified successfully",
+      "add": "The plan has been added successfully",
+      "remove": "The plan has been removed successfully"
+    }
+  }
+}

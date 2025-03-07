@@ -1,0 +1,18 @@
+{
+  "navLink": {
+    "organizations": "المنظمات",
+    "sessions": "الجلسات",
+    "subscriptions": "الاشتراكات",
+    "subscription-orders": "طلبات الاشتراك",
+    "desserts": "المأكولات والمشروبات",
+    "statistics": "الإحصائيات",
+    "my-organizations": "المنظمات",
+    "plans": "الباقات",
+    "offers": "العروض",
+    "profile": "المعلومات الشخصية",
+    "settings": "الإعدادات",
+    "edit": "تحديث المعلومات الشخصية",
+    "password-change": "تغيير كلمة المرور",
+    "password-forgot": "نسيت كلمة المرور"
+  }
+}

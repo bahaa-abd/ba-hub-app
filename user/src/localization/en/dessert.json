@@ -1,0 +1,24 @@
+{
+  "add": "Adding a new dessert",
+  "edit": "Modification of the dessert \"{{name}}\"",
+  "remove": "Remove dessert",
+
+  "table": {
+    "name": "Name",
+    "price": "Price",
+    "type": "Type"
+  },
+  "form": {
+    "name_ar": "Name in arabic",
+    "name_en": "Name in english",
+    "price": "Price",
+    "type": "Type"
+  },
+  "message": {
+    "success": {
+      "edit": "The dessert has been modified successfully",
+      "add": "The dessert has been added successfully",
+      "remove": "The dessert has been removed successfully"
+    }
+  }
+}
