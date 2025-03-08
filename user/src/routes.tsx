@@ -59,17 +59,6 @@ export default createBrowserRouter(
           </Route>
           <Route path="" element={<Layout />}>
             <Route path="/offers" element={<PlansPage />} />
-            <Route path="settings/profile" element={<ProfilePage />} />
-            <Route path="settings/profile/edit" element={<ProfileEditPage />} />
-            <Route
-              path="settings/password-change"
-              element={<PasswordChangePage />}
-            />
-            <Route
-              path="settings/password-forgot"
-              element={<PasswordForgotPage />}
-            />
-            <Route path="settings/*" element={<SettingsPage />} />
           </Route>
         </Route>
         <Route element={<AdminRoute />}>
@@ -83,6 +72,19 @@ export default createBrowserRouter(
             />
             <Route path="subscriptions" element={<SubscriptionsPage />} />
           </Route>
+        </Route>
+        <Route element={<Layout />}>
+          <Route path="settings/profile" element={<ProfilePage />} />
+          <Route path="settings/profile/edit" element={<ProfileEditPage />} />
+          <Route
+            path="settings/password-change"
+            element={<PasswordChangePage />}
+          />
+          <Route
+            path="settings/password-forgot"
+            element={<PasswordForgotPage />}
+          />
+          <Route path="settings/*" element={<SettingsPage />} />
         </Route>
         <Route path="*" element={<SomethingWentWrong />} />
       </Route>
