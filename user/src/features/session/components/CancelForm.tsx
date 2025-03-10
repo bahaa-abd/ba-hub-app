@@ -1,4 +1,4 @@
-import { Box, Grid, Tooltip, useTheme } from "@mui/material";
+import { Box, Grid, Tooltip } from "@mui/material";
 import { useQueryClient } from "@tanstack/react-query";
 import { useSnackbar } from "context/snackbarContext";
 import { queryStore } from "features/shared";
@@ -11,29 +11,27 @@ import { sessionQueries } from "..";
 import { SessionAction } from "../api/type";
 import Submit from "components/buttons/Submit";
 import { SessionStatus } from "constants/enums";
-import { purple } from "@mui/material/colors";
-import { StopCircle } from "@mui/icons-material";
+import { red } from "@mui/material/colors";
+import { Cancel } from "@mui/icons-material";
 
-export type EndFormProps = {
+export type CancelFormProps = {
   id: string;
   status: string;
 };
 
-export const EndForm: FC<EndFormProps> = ({ id, status }) => {
-  const theme = useTheme();
-
+export const CancelForm: FC<CancelFormProps> = ({ id, status }) => {
   const { t } = useTranslation("session");
   const { handleSubmit, setError } = useForm<SessionAction>({});
   const queryClient = useQueryClient();
   const successSnackbar = useSuccessSnackbar();
   const snackbar = useSnackbar();
-  const mutation = sessionQueries.useEnd();
+  const mutation = sessionQueries.useCancel();
 
   const onSubmit = async () => {
     mutation.mutate(id, {
       onSuccess: () => {
         queryClient.invalidateQueries(queryStore.session.all._def);
-        successSnackbar(t("message.success.end"));
+        successSnackbar(t("message.success.cancel"));
       },
       onError: parseResponseError({ snackbar, setError }),
     });
@@ -43,17 +41,16 @@ export const EndForm: FC<EndFormProps> = ({ id, status }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Grid>
         <Grid>
-          <Tooltip title={t("endSession")}>
+          <Tooltip title={t("cancelSession")}>
             <span>
               <Submit
-                variant="contained"
                 sx={{
                   fontSize: "14px",
                   fontWeight: "bold",
                   textTransform: "none",
                   borderRadius: "20px",
-                  backgroundColor: theme.palette.primary.main,
-                  "&:hover": { backgroundColor: purple[800] },
+                  backgroundColor: red[500],
+                  "&:hover": { backgroundColor: red[800] },
                   color: "white",
                   minWidth: "50px",
                 }}
@@ -71,7 +68,7 @@ export const EndForm: FC<EndFormProps> = ({ id, status }) => {
                     alignItems: "center",
                   }}
                 >
-                  <StopCircle sx={{ fontSize: 20, color: "white" }} />
+                  <Cancel sx={{ fontSize: 20, color: "white" }} />
                 </Box>
               </Submit>
             </span>

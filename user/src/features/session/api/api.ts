@@ -5,6 +5,7 @@ import { Session, SessionAction } from "./type";
 import { paginateParams } from "utils/apiHelpers";
 import { storage } from "utils/storage";
 import { SessionDessertBody } from "../components/DessertAddForm/type";
+import { SessionStatus } from "constants/enums";
 
 const API = {
   getAll: async (params: APIListParams) => {
@@ -31,6 +32,14 @@ const API = {
       { headers: { "organization-id": storage.getOrg() } }
     );
     return data;
+  },
+  cancel: async (id: string) => {
+    const { data } = await axios.patch<{ data: Session }>(
+      API_ROUTES.SESSIONS.EDIT(id),
+      { status: SessionStatus.cancelled },
+      { headers: { "organization-id": storage.getOrg() } }
+    );
+    return data.data;
   },
   add: async (body: SessionAction) => {
     const { data } = await axios.post(API_ROUTES.SESSIONS.ADD, body, {

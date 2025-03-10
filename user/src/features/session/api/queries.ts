@@ -19,5 +19,6 @@ export const queries = {
   useEdit: () => useMutation(API.edit),
   useAdd: () => useMutation(API.add),
   useEnd: () => useMutation(API.end),
+  useCancel: () => useMutation(API.cancel),
   useAddDessert: () => useMutation(API.addDessert),
 };

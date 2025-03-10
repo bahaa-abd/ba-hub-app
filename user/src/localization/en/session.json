@@ -4,6 +4,7 @@
   "remove": "Remove session",
   "addDessert": "Add dessert",
   "endSession": "End session",
+  "cancelSession": "Cancel session",
   "table": {
     "username": "Username"
   },
@@ -14,12 +15,14 @@
     "create": "Add",
     "count": "Number of desserts",
     "dessert": "Dessert",
-    "end": "End"
+    "end": "End",
+    "cancel": "Cancel"
   },
   "message": {
     "success": {
       "edit": "The session has been modified successfully",
       "end": "The session has been ended successfully",
+      "cancel": "The session has been cancelled successfully",
       "add": "The session has been added successfully",
       "remove": "The session has been removed successfully"
     }

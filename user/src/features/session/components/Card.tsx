@@ -14,6 +14,8 @@ import { EndForm } from "./EndForm";
 import { useTranslation } from "react-i18next";
 import CakeIcon from "@mui/icons-material/Cake";
 import usePriceFormatter from "hooks/usePriceFormatter";
+import { SessionStatus } from "constants/enums";
+import { CancelForm } from "./CancelForm";
 
 export const SessionCard: FC<{ item: any }> = ({ item }) => {
   const [activeDessertSession, setActiveDessertSession] = useState<
@@ -53,7 +55,9 @@ export const SessionCard: FC<{ item: any }> = ({ item }) => {
       <Typography variant="body2" color="text.secondary">
         {tCommon("End")}:
         <strong>
-          {item.endTime !== "Ongoing" ? formatDate(item.endTime) : elapsedTime}
+          {item.status !== SessionStatus.started
+            ? formatDate(item.endTime)
+            : elapsedTime}
         </strong>
       </Typography>
 
@@ -83,8 +87,9 @@ export const SessionCard: FC<{ item: any }> = ({ item }) => {
       <Divider sx={{ mt: 1 }} />
       <Stack
         direction="row"
-        spacing={2}
+        spacing={1}
         justifyContent="center"
+        alignItems="center"
         sx={{ mt: 1, pt: 2 }}
       >
         <div>
@@ -95,13 +100,14 @@ export const SessionCard: FC<{ item: any }> = ({ item }) => {
             <Button
               variant="contained"
               sx={{
-                width: "110px",
-                height: "40px",
                 fontSize: "14px",
                 fontWeight: "bold",
                 textTransform: "none",
                 borderRadius: "20px",
+                color: "white",
+                minWidth: "50px",
                 backgroundColor: theme.palette.grey[600],
+                textAlign: "center",
                 "&:hover": { backgroundColor: theme.palette.grey[800] },
               }}
               onClick={() =>
@@ -109,13 +115,20 @@ export const SessionCard: FC<{ item: any }> = ({ item }) => {
                   activeDessertSession === item.id ? null : item.id
                 )
               }
-              startIcon={<CakeIcon sx={{ color: "white" }} />}
-              disabled={item.status === "ended"}
+              disabled={
+                item.status === SessionStatus.ended ||
+                item.status === SessionStatus.cancelled
+              }
             >
-              {t("form.dessert")}
+              <CakeIcon
+                sx={{ color: "white", fontSize: 20, textAlign: "center" }}
+              />
             </Button>
           </span>
         </Tooltip>
+        <div>
+          <CancelForm id={item.id} status={item.status} />
+        </div>
         {activeDessertSession === item.id && (
           <DessertAddForm
             data={item}
