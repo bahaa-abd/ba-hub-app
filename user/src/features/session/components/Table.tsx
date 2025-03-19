@@ -12,6 +12,7 @@ import { SessionStatus } from "constants/enums";
 import { Dayjs } from "dayjs";
 import { useTranslation } from "react-i18next";
 import { transformFiled } from "utils/transforms";
+import { useLoadingContext } from "context/loadingContext";
 
 type Props = {
   filters: {
@@ -26,6 +27,7 @@ export const SessionTable: FC<Props> = ({ filters }) => {
   const { dateFrom, dateTo, status } = filters;
   // Get query params
   const { t: tCommon } = useTranslation();
+  const isLoading = useLoadingContext();
   const search = useQuerySearchParam();
   const page = usePageNumberSearchParam();
   const query = sessionQueries.useAll({
@@ -62,17 +64,19 @@ export const SessionTable: FC<Props> = ({ filters }) => {
 
   return (
     <>
-      <Stack spacing={0} width={"100%"}>
-        <CardTable
-          // title="Study Café Sessions"
-          pageData={dataCard || []}
-          CardContent={SessionCard}
-          infiniteQuery={query}
-          pageNumber={page}
-          isThereNext={isThereNext(data?.pages[0].total ?? 0, page)}
-          isTherePrev={isTherePrev(page)}
-        />
-      </Stack>
+      {!isLoading && (
+        <Stack spacing={0} width={"100%"}>
+          <CardTable
+            // title="Study Café Sessions"
+            pageData={dataCard || []}
+            CardContent={SessionCard}
+            infiniteQuery={query}
+            pageNumber={page}
+            isThereNext={isThereNext(data?.pages[0].total ?? 0, page)}
+            isTherePrev={isTherePrev(page)}
+          />
+        </Stack>
+      )}
     </>
   );
 };

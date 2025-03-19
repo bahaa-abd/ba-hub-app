@@ -15,6 +15,7 @@ import { APIList } from "types/api";
 import { FC } from "react";
 import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
+import LTR from "components/layout/LTR";
 
 type CardTableProps<T> = {
   title?: string;
@@ -130,74 +131,73 @@ export const CardTable = <T,>({
           ))}
         </Stack>
       )}
-      <Stack
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: 2,
-          mt: 4,
-        }}
-      >
-        {/* Previous Button */}
-        <Tooltip title={tCommon("Previous Page")}>
-          <span>
-            <IconButton
-              onClick={() => handlePageChange(null, pageNumber - 1)}
-              disabled={
-                !isTherePrev || isFetchingNextPage || isFetchingPreviousPage
-              }
-              sx={{
-                color: "white",
-                borderRadius: "50%",
-                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-                transition: "all 0.3s ease",
-                "&:hover": {
-                  backgroundColor: `${theme.palette.grey.A400}`,
-                },
-                "&.Mui-disabled": {
-                  backgroundColor: "#A1887F",
-                  color: "white", // Ensure text color remains white
-                  opacity: 0.6,
-                  boxShadow: "none",
-                },
-              }}
-            >
-              <ArrowBackIosNew fontSize="small" />
-            </IconButton>
-          </span>
-        </Tooltip>
-
-        {/* Next Button */}
-        <Tooltip title={tCommon("Next Page")}>
-          <span>
-            <IconButton
-              onClick={() => handlePageChange(null, pageNumber + 1)}
-              disabled={
-                !isThereNext || isFetchingNextPage || isFetchingPreviousPage
-              }
-              sx={{
-                color: "white",
-                borderRadius: "50%",
-                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-                transition: "all 0.3s ease",
-                "&:hover": {
-                  backgroundColor: `${theme.palette.grey.A400}`,
-                },
-                "&.Mui-disabled": {
-                  backgroundColor: "#A1887F",
-                  color: "white", // Ensure text color remains white
-                  opacity: 0.6,
-                  boxShadow: "none",
-                },
-              }}
-            >
-              <ArrowForwardIos fontSize="small" />
-            </IconButton>
-          </span>
-        </Tooltip>
-      </Stack>
+      <LTR>
+        <Stack
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 2,
+            mt: 4,
+          }}
+        >
+          <Tooltip title={tCommon("Previous Page")}>
+            <span>
+              <IconButton
+                onClick={() => handlePageChange(null, pageNumber - 1)}
+                disabled={
+                  !isTherePrev || isFetchingNextPage || isFetchingPreviousPage
+                }
+                sx={{
+                  color: "white",
+                  borderRadius: "50%",
+                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    backgroundColor: `${theme.palette.grey.A400}`,
+                  },
+                  "&.Mui-disabled": {
+                    backgroundColor: "#A1887F",
+                    color: "white", // Ensure text color remains white
+                    opacity: 0.6,
+                    boxShadow: "none",
+                  },
+                }}
+              >
+                <ArrowBackIosNew fontSize="small" />
+              </IconButton>
+            </span>
+          </Tooltip>
+          <Tooltip title={tCommon("Next Page")}>
+            <span>
+              <IconButton
+                onClick={() => handlePageChange(null, pageNumber + 1)}
+                disabled={
+                  !isThereNext || isFetchingNextPage || isFetchingPreviousPage
+                }
+                sx={{
+                  color: "white",
+                  borderRadius: "50%",
+                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    backgroundColor: `${theme.palette.grey.A400}`,
+                  },
+                  "&.Mui-disabled": {
+                    backgroundColor: "#A1887F",
+                    color: "white", // Ensure text color remains white
+                    opacity: 0.6,
+                    boxShadow: "none",
+                  },
+                }}
+              >
+                <ArrowForwardIos fontSize="small" />
+              </IconButton>
+            </span>
+          </Tooltip>
+        </Stack>
+      </LTR>
     </Box>
   );
 };

@@ -90,9 +90,9 @@ export const RegistrationPage: FC<{}> = ({}) => {
                         fontSize={39}
                         fontFamily={"cursive"}
                       >
-                        u
+                        ba
                       </Typography>
-                      Bay
+                      Hub
                     </Typography>
                     <Box component="img" src={"/logo.svg"} width={70} />
                   </Stack>

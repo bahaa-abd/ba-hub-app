@@ -73,9 +73,16 @@ export const Filters: FC<Props> = ({
                   value={status}
                   onChange={(e) => setStatus(e.target.value as SessionStatus)}
                 >
-                  <MenuItem value={""}>All</MenuItem>
-                  <MenuItem value={SessionStatus.started}>Ongoing</MenuItem>
-                  <MenuItem value={SessionStatus.ended}>Ended</MenuItem>
+                  <MenuItem value={""}>{tCommon("all")}</MenuItem>
+                  <MenuItem value={SessionStatus.started}>
+                    {tCommon("started")}
+                  </MenuItem>
+                  <MenuItem value={SessionStatus.ended}>
+                    {tCommon("ended")}
+                  </MenuItem>
+                  <MenuItem value={SessionStatus.cancelled}>
+                    {tCommon("cancelled")}
+                  </MenuItem>
                 </TextField>
               </Grid>
 

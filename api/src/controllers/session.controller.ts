@@ -172,6 +172,10 @@ export class SessionController {
         new NotFoundError('Session not found'),
       );
 
+      if (updateBody.status === SessionStatus.cancelled) {
+        updateBody.endTime = new Date();
+      }
+
       const data = await sessionRepository.patchById(session.id, updateBody);
 
       res.ok({ message: 'Session has been updated', data });

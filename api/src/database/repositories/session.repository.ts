@@ -131,7 +131,7 @@ export class SessionRepository extends BaseRepository<ISession> {
     const endYear = endOfYear(fromDate);
     // Get sessions statistics
     const totalRevenue = Math.ceil(
-      (await this.findAll()).reduce(
+      (await this.model.find({ organizationId, deletedAt: null })).reduce(
         (sum, curr) => sum + (curr.totalCost ?? 0),
         0,
       ),
