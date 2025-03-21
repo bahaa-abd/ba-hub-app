@@ -16,6 +16,7 @@ import CakeIcon from "@mui/icons-material/Cake";
 import usePriceFormatter from "hooks/usePriceFormatter";
 import { SessionStatus } from "constants/enums";
 import { CancelForm } from "./CancelForm";
+import i18n from "lib/i18next";
 
 export const SessionCard: FC<{ item: any }> = ({ item }) => {
   const [activeDessertSession, setActiveDessertSession] = useState<
@@ -53,14 +54,16 @@ export const SessionCard: FC<{ item: any }> = ({ item }) => {
         {tCommon("Start")}: <strong>{formatDate(item.startTime)}</strong>
       </Typography>
       <Typography variant="body2" color="text.secondary">
-        {tCommon("End")}:
+        {tCommon("End")}:{" "}
         <strong>
           {item.status !== SessionStatus.started
             ? formatDate(item.endTime)
             : elapsedTime}
         </strong>
       </Typography>
-
+      <Typography variant="body2" color="text.secondary">
+        {tCommon("Number of persons")}: <strong>{item.numberOfPersons}</strong>
+      </Typography>
       <Typography variant="body2" color="text.secondary">
         {tCommon("Desserts")}: <strong>{item.desserts}</strong>
       </Typography>
@@ -150,7 +153,7 @@ const formatElapsedTime = (milliseconds: number) => {
 };
 
 const formatDate = (date: string) =>
-  new Date(date).toLocaleString("en-US", {
+  new Date(date).toLocaleString(`${i18n.language}-US`, {
     month: "short",
     day: "numeric",
     hour: "numeric",

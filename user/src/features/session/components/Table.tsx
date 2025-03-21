@@ -48,6 +48,7 @@ export const SessionTable: FC<Props> = ({ filters }) => {
           session.user?.name || session.username || "Unknown"
         }`,
         status: session.status,
+        numberOfPersons: session.numberOfPersons,
         startTime: session.startTime,
         endTime: session.endTime || "Ongoing",
         price: session.totalCost || "0",

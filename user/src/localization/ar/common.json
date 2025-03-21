@@ -44,7 +44,7 @@
   "Clear filters": "مسح الفلاتر",
   "Revenue by Day": "الأرباح حسب اليوم",
   "Revenue by Month": "الأباح حسب الشهر",
-  "Desserts Sales": "مبيعات المشروبات والوجبات",
+  "Desserts by Month": "مبيعات المشروبات والوجبات حسب الشهر",
   "Sessions by Status": "الجلسات حسب الحالة",
   "Desserts Revenue": "أرباح المشروبات و الوجبات",
   "Sessions Revenue": "أرباح الجلسات",
@@ -58,6 +58,7 @@
   "Revenue": "الأرباح",
   "Count": "العدد",
   "Name": "الاسم",
+  "Number of persons": "عدد الأشخاص",
   "input": {
     "email": "البريد الإلكتروني",
     "password": "كلمة المرور"

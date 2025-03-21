@@ -195,11 +195,11 @@ export const StatisticsChart: FC<{ fromDate?: Dayjs; toDate?: Dayjs }> = ({
           </CardContent>
         </Card>
 
-        {/* Desserts By Month*/}
+        {/* Desserts by Month*/}
         <Card>
           <CardContent>
             <Typography variant="h6" gutterBottom>
-              {tCommon("Desserts Sales")}
+              {tCommon("Desserts by Month")}
             </Typography>
             <ResponsiveContainer width="100%" height={400}>
               <BarChart data={formattedDessertsByMonth}>
@@ -225,7 +225,7 @@ export const StatisticsChart: FC<{ fromDate?: Dayjs; toDate?: Dayjs }> = ({
         <Card>
           <CardContent>
             <Typography variant="h6" gutterBottom>
-              {tCommon("Desserts By Day")}
+              {tCommon("Desserts by Day")}
             </Typography>
             <ResponsiveContainer width="100%" height={400}>
               <BarChart data={formattedDessertsByDay}>

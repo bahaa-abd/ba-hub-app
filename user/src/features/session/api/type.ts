@@ -19,6 +19,7 @@ export type Session = {
   organization: Organization;
   user?: User;
   userId: string;
+  numberOfPersons: number;
   totalCost?: number;
   endTime?: string;
   startTime: string;

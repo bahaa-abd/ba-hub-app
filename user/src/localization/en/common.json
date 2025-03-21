@@ -44,7 +44,7 @@
   "Clear filters": "Clear filters",
   "Revenue by Day": "Revenue by Day",
   "Revenue by Month": "Revenue by Month",
-  "Desserts Sales": "Desserts Sales",
+  "Desserts by Month": "Desserts by Month",
   "Sessions by Status": "Sessions by Status",
   "Desserts Revenue": "Desserts Revenue",
   "Sessions Revenue": "Sessions Revenue",
@@ -61,6 +61,7 @@
   "password": "Password",
   "Count": "Count",
   "Name": "Name",
+  "Number of persons": "Number of persons",
   "error": {
     "notFound": "Not Found 404",
     "noData": "No data",
