@@ -16,6 +16,7 @@ import { FC } from "react";
 import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import LTR from "components/layout/LTR";
+import Loading from "components/feedback/Loading";
 
 type CardTableProps<T> = {
   title?: string;
@@ -45,6 +46,7 @@ export const CardTable = <T,>({
     isError,
     isFetchingNextPage,
     isFetchingPreviousPage,
+    isLoading,
   } = infiniteQuery;
   const handlePageChange = useHandlePageChange({
     fetchNextPage,
@@ -81,7 +83,9 @@ export const CardTable = <T,>({
       )}
 
       {/* Data Grid */}
-      {!isError && (
+      {isLoading && <Stack alignItems={"center"}>{<Loading />}</Stack>}
+
+      {!isError && !isLoading && (
         <Stack
           sx={{
             display: "flex",

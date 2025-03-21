@@ -27,7 +27,6 @@ export const SessionTable: FC<Props> = ({ filters }) => {
   const { dateFrom, dateTo, status } = filters;
   // Get query params
   const { t: tCommon } = useTranslation();
-  const isLoading = useLoadingContext();
   const search = useQuerySearchParam();
   const page = usePageNumberSearchParam();
   const query = sessionQueries.useAll({
@@ -64,21 +63,17 @@ export const SessionTable: FC<Props> = ({ filters }) => {
   );
 
   return (
-    <>
-      {!isLoading && (
-        <Stack spacing={0} width={"100%"}>
-          <CardTable
-            // title="Study Café Sessions"
-            pageData={dataCard || []}
-            CardContent={SessionCard}
-            infiniteQuery={query}
-            pageNumber={page}
-            isThereNext={isThereNext(data?.pages[0].total ?? 0, page)}
-            isTherePrev={isTherePrev(page)}
-          />
-        </Stack>
-      )}
-    </>
+    <Stack spacing={0} width={"100%"}>
+      <CardTable
+        // title="Study Café Sessions"
+        pageData={dataCard || []}
+        CardContent={SessionCard}
+        infiniteQuery={query}
+        pageNumber={page}
+        isThereNext={isThereNext(data?.pages[0].total ?? 0, page)}
+        isTherePrev={isTherePrev(page)}
+      />
+    </Stack>
   );
 };
 
