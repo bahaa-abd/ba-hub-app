@@ -98,7 +98,7 @@ export class DessertController {
           organizationId: req.valid.headers['organization-id'],
         }),
         new ConflictError(
-          `Dessert with name "${newDessert.name}" already exists`,
+          `Dessert with name "${newDessert.name.en}" already exists`,
         ),
       );
 
