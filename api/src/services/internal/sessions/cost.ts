@@ -1,6 +1,10 @@
 import { ISession } from '../../../database/models/session.model';
 import { SessionStatus } from '../../../utils/enum';
 
+function roundUpToNext500(value: number): number {
+  return Math.ceil(value / 500) * 500;
+}
+
 export const calculateCost = async (
   session: ISession,
   organizationHourlyRate: number,
@@ -22,11 +26,12 @@ export const calculateCost = async (
         Math.ceil(durationInHours * organizationHourlyRate),
       ) * session.numberOfPersons;
 
-    // Total cost including additional cost
-    session.totalCost = session.subtotal + session.additionalCost;
+    const rawTotal = session.subtotal + session.additionalCost;
+    session.totalCost = roundUpToNext500(rawTotal);
   } else {
-    session.totalCost = session.additionalCost;
+    session.totalCost = roundUpToNext500(session.additionalCost);
   }
+
   await session.save({ validateBeforeSave: false });
 
   return session;
